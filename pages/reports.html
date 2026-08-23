@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendo - Reports</title>
+    <link rel="stylesheet" href="../css/reports.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+            <h1>Spendo</h1>
+
+            <nav>
+                <p>Dashboard</p>
+                <p>Transactions</p>
+                <p>Budget</p>
+                <p class="active">Reports</p>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="top-header">
+                <div>
+                    <h2>Financial Overview</h2>
+                    <p>Track your spending and take control of your finances.</p>
+                </div>
+
+                <div class="month-display">
+                    <span>August 2026</span>
+                </div>
+            </header>
+
+            <section class="overview-section">
+                <div class="overview-card">
+
+                    <h3>Financial Overview</h3>
+
+                    <div class="overview-content">
+
+                        <div class="balance">
+                            <p class="balance-label">Total Balance</p>
+                            <h2 id="total-balance">₹0</h2>
+                        </div>
+
+                        <div class="overview-stats">
+
+                            <div class="stat-card">
+                                <p>Income</p>
+                                <h3 id="total-income">₹0</h3>
+                            </div>
+
+                            <div class="stat-card">
+                                <p>Expenses</p>
+                                <h3 id="total-expense">₹0</h3>
+                            </div>
+
+                            <div class="stat-card">
+                                <p>Savings</p>
+                                <h3 id="total-savings">₹0</h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="budget-section">
+
+                <div class="budget-card">
+
+                    <div class="budget-header">
+                        <h3>Monthly Budget</h3>
+                        <button id="set-budget">Set Budget</button>
+                    </div>
+
+                    <p class="budget-amount">
+                        <span id="spent-amount">₹0</span>
+                        <span id="total-budget">/ ₹0</span>
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress" id="budget-progress"></div>
+                    </div>
+
+                    <p class="budget-remaining" id="budget-remaining">
+                        Set your monthly budget to get started
+                    </p>
+
+                </div>
+
+            </section>
+            <section class="category-budget-section">
+    <div class="category-budget-card">
+        <div class="budget-header">
+            <div>
+                <h3>Category Budgets</h3>
+                <p>Set spending limits for individual categories</p>
+            </div>
+            <button id="set-category-budget">Add Budget</button>
+        </div>
+
+        <div id="category-budget-list" class="empty-state">
+            No budgets added yet
+        </div>
+    </div>
+</section>
+
+            <section class="insights-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Financial Insights</h3>
+                    </div>
+                </div>
+
+                <div class="insights-grid">
+
+                    <div class="insight-card">
+
+                        <div class="card-heading">
+                            <h3>Spending by Category</h3>
+                        </div>
+
+                        <div id="category-list" class="empty-state">
+                            No data yettt
+                        </div>
+
+                    </div>
+
+                    <div class="insight-card">
+
+                        <div class="card-heading">
+                            <h3>Monthly Report</h3>
+                        </div>
+
+                        <div class="report-summary">
+
+                            <div>
+                                <p>Monthly Income</p>
+                                <strong id="monthly-income">₹0</strong>
+                            </div>
+
+                            <div>
+                                <p>Monthly Expenses</p>
+                                <strong id="monthly-expense">₹0</strong>
+                            </div>
+
+                            <div>
+                                <p>Monthly Savings</p>
+                                <strong id="monthly-savings">₹0</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="analysis-section">
+
+                <div class="analysis-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <h3>Spending Analysis</h3>
+                            <p>Understand how your money is being used.</p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-content">
+
+                        <div class="analysis-empty">
+                            <h4>No analysis yet</h4>
+                            <p>Add transactions to start seeing insights about your spending.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/reports.js"></script>
+
+</body>
+</html>
