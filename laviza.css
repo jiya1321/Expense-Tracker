@@ -1,5 +1,9 @@
 /* =========================
+<<<<<<< HEAD
+   GLOBAL STYLES
+=======
    GLOBAL
+>>>>>>> origin/jiya
 ========================= */
 
 * {
@@ -10,6 +14,79 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
+<<<<<<< HEAD
+    background: #f7f8fc;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    height: 72px;
+    padding: 0 7%;
+    
+    background: #17152b;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+nav h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav a {
+    color: #c9c7d8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* =========================
+   MAIN AREA
+========================= */
+
+main {
+    width: 90%;
+    max-width: 1150px;
+    margin: 45px auto;
+}
+
+main > h1 {
+    font-size: 34px;
+    font-weight: 750;
+    color: #17152b;
+    margin-bottom: 8px;
+}
+
+main > p {
+    color: #77758a;
+    font-size: 15px;
+    margin-bottom: 32px;
+=======
     background: #f5f6fb;
     color: #25243a;
     min-height: 100vh;
@@ -19,10 +96,73 @@ body {
     width: 90%;
     max-width: 1150px;
     margin: 40px auto;
+>>>>>>> origin/jiya
 }
 
 
 /* =========================
+<<<<<<< HEAD
+   SUMMARY CARDS
+========================= */
+
+.summary-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    position: relative;
+
+    background: white;
+    padding: 26px;
+
+    border-radius: 16px;
+
+    border: 1px solid #ececf3;
+
+    box-shadow: 0 8px 25px rgba(32, 27, 65, 0.06);
+
+    overflow: hidden;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(32, 27, 65, 0.10);
+}
+
+.summary-card::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background: #6d5dfc;
+}
+
+.summary-card h3 {
+    font-size: 14px;
+    color: #77758a;
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.summary-card p {
+    font-size: 28px;
+    font-weight: 750;
+    color: #17152b;
+=======
    HEADER
 ========================= */
 
@@ -71,6 +211,7 @@ body {
     font-size: 20px;
     color: #17152b;
     margin-bottom: 20px;
+>>>>>>> origin/jiya
 }
 
 
@@ -78,6 +219,129 @@ body {
    TRANSACTION FORM
 ========================= */
 
+<<<<<<< HEAD
+.transaction-form {
+    background: white;
+
+    padding: 32px;
+
+    border-radius: 18px;
+
+    border: 1px solid #ececf3;
+
+    box-shadow: 0 8px 25px rgba(32, 27, 65, 0.06);
+
+    margin-bottom: 30px;
+}
+
+.transaction-form h2 {
+    font-size: 21px;
+    color: #17152b;
+
+    margin-bottom: 26px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 25px;
+    row-gap: 12px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: 650;
+    color: #343248;
+
+    margin-top: 5px;
+}
+
+form input,
+form select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #dedee8;
+    border-radius: 9px;
+
+    background: #fafafe;
+
+    font-size: 14px;
+    color: #28263b;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #6d5dfc;
+
+    background: white;
+
+    box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.10);
+}
+
+
+/* =========================
+   ERROR MESSAGES
+========================= */
+
+.error {
+    color: #e5484d;
+
+    font-size: 12px;
+
+    min-height: 16px;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+form button {
+    grid-column: span 2;
+
+    margin-top: 8px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #6d5dfc,
+        #5546dc
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(109, 93, 252, 0.22);
+
+    transition: 0.2s ease;
+}
+
+form button:hover {
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 20px rgba(109, 93, 252, 0.30);
+=======
 #transactionForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -127,10 +391,61 @@ body {
     font-size: 13px;
     margin-top: 10px;
     min-height: 18px;
+>>>>>>> origin/jiya
 }
 
 
 /* =========================
+<<<<<<< HEAD
+   RECENT TRANSACTIONS
+========================= */
+
+.recent-section {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid #ececf3;
+
+    box-shadow: 0 8px 25px rgba(32, 27, 65, 0.06);
+}
+
+.recent-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.recent-header h2 {
+    font-size: 21px;
+    color: #17152b;
+}
+
+#searchInput {
+    width: 240px;
+
+    padding: 11px 14px;
+
+    border: 1px solid #dedee8;
+    border-radius: 9px;
+
+    background: #fafafe;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    border-color: #6d5dfc;
+
+    box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.10);
+=======
    SUMMARY
 ========================= */
 
@@ -212,10 +527,54 @@ body {
     border-color: #6d5dfc;
     background: white;
     box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.1);
+>>>>>>> origin/jiya
 }
 
 
 /* =========================
+<<<<<<< HEAD
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        height: auto;
+
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav div {
+        gap: 15px;
+    }
+
+    .summary-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    form button {
+        grid-column: span 1;
+    }
+
+    .recent-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    #searchInput {
+        width: 100%;
+=======
    CATEGORY MANAGEMENT
 ========================= */
 
@@ -458,5 +817,6 @@ body {
 
     .summary-card p {
         font-size: 24px;
+>>>>>>> origin/jiya
     }
 }
