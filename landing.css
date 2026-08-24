@@ -1,49 +1,44 @@
-/* ==========================================================================
-   Expense Tracker — Landing Page Stylesheet
-   Design Inspiration: Modern Personal Finance / Fintech SaaS
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. CSS VARIABLES & DESIGN SYSTEM TOKENS
-   -------------------------------------------------------------------------- */
+
+
 :root {
-    /* Color Palette */
+
     --color-bg: #F8FAFC;
     --color-bg-alt: #FFFFFF;
     --color-card: #FFFFFF;
-    --color-text-main: #0F172A;     /* Dark Navy */
-    --color-text-muted: #475569;    /* Slate */
-    --color-text-light: #94A3B8;    /* Muted Gray */
+    --color-text-main: #0F172A;
+    --color-text-muted: #475569;
+    --color-text-light: #94A3B8;
 
-    /* Brand & Accent Colors */
-    --color-primary: #4F46E5;       /* Indigo */
+
+    --color-primary: #4F46E5;
     --color-primary-hover: #4338CA;
     --color-primary-light: #EEF2FF;
-    --color-purple: #7C3AED;        /* Violet Accent */
+    --color-purple: #7C3AED;
     --color-purple-light: #F5F3FF;
-    --color-emerald: #10B981;       /* Positive Income */
+    --color-emerald: #10B981;
     --color-emerald-light: #ECFDF5;
-    --color-rose: #F43F5E;          /* Expense Red */
+    --color-rose: #F43F5E;
     --color-rose-light: #FFF1F2;
     --color-amber: #F59E0B;
     --color-amber-light: #FEF3C7;
 
-    /* Gradients */
+
     --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
     --gradient-hero-bg: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
     --gradient-card-border: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(124, 58, 237, 0.05));
     --gradient-cta: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
 
-    /* Shadows & Glassmorphism */
+
     --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
     --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
     --shadow-lg: 0 20px 40px -15px rgba(79, 70, 229, 0.14);
     --shadow-glow: 0 0 40px rgba(79, 70, 229, 0.25);
-    
-    /* Typography */
+
+
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    /* Layout & Spacing */
+
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 20px;
@@ -51,9 +46,7 @@
     --container-max-width: 1200px;
 }
 
-/* --------------------------------------------------------------------------
-   2. GLOBAL RESET & BASE STYLES
-   -------------------------------------------------------------------------- */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -93,9 +86,7 @@ button {
     padding: 0 24px;
 }
 
-/* --------------------------------------------------------------------------
-   3. NAVBAR
-   -------------------------------------------------------------------------- */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -202,7 +193,7 @@ button {
     box-shadow: 0 12px 24px rgba(79, 70, 229, 0.35);
 }
 
-/* Mobile Toggle */
+
 .mobile-toggle {
     display: none;
     color: var(--color-text-main);
@@ -221,9 +212,7 @@ button {
     display: block;
 }
 
-/* --------------------------------------------------------------------------
-   4. HERO SECTION
-   -------------------------------------------------------------------------- */
+
 .hero-section {
     position: relative;
     padding-top: 150px;
@@ -354,9 +343,7 @@ button {
     color: var(--color-text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   5. HERO VISUAL / DASHBOARD MOCKUP
-   -------------------------------------------------------------------------- */
+
 .hero-visual {
     position: relative;
     display: flex;
@@ -423,7 +410,7 @@ button {
     padding: 24px;
 }
 
-/* Balance Box */
+
 .mockup-balance {
     background: var(--color-bg);
     border-radius: var(--radius-md);
@@ -461,7 +448,7 @@ button {
     letter-spacing: -0.02em;
 }
 
-/* Summary Grid */
+
 .mockup-summary-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -521,7 +508,7 @@ button {
     color: var(--color-text-main);
 }
 
-/* Chart Preview */
+
 .mockup-chart-box {
     background: #F8FAFC;
     border-radius: var(--radius-md);
@@ -574,7 +561,7 @@ button {
     color: var(--color-text-light);
 }
 
-/* Transactions list mockup */
+
 .mockup-transactions {
     display: flex;
     flex-direction: column;
@@ -631,7 +618,7 @@ button {
 .tx-amount.negative { color: var(--color-rose); }
 .tx-amount.positive { color: var(--color-emerald); }
 
-/* Floating Badges */
+
 .floating-badge {
     position: absolute;
     background: #FFFFFF;
@@ -693,9 +680,7 @@ button {
     50% { transform: translateY(-8px); }
 }
 
-/* --------------------------------------------------------------------------
-   6. SECTION HEADERS & GENERAL CARD GRIDS
-   -------------------------------------------------------------------------- */
+
 .section-header {
     text-align: center;
     max-width: 640px;
@@ -726,9 +711,7 @@ button {
     color: var(--color-text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   7. FEATURES SECTION
-   -------------------------------------------------------------------------- */
+
 .features-section {
     padding: 100px 0;
     background: #FFFFFF;
@@ -786,9 +769,7 @@ button {
     line-height: 1.55;
 }
 
-/* --------------------------------------------------------------------------
-   8. HOW IT WORKS SECTION
-   -------------------------------------------------------------------------- */
+
 .how-it-works-section {
     padding: 100px 0;
     background: var(--color-bg);
@@ -839,9 +820,7 @@ button {
     line-height: 1.6;
 }
 
-/* --------------------------------------------------------------------------
-   9. BENEFITS SECTION
-   -------------------------------------------------------------------------- */
+
 .benefits-section {
     padding: 100px 0;
     background: #FFFFFF;
@@ -896,9 +875,7 @@ button {
     line-height: 1.55;
 }
 
-/* --------------------------------------------------------------------------
-   10. CTA SECTION
-   -------------------------------------------------------------------------- */
+
 .cta-section {
     padding: 80px 0 100px 0;
     background: var(--color-bg);
@@ -966,9 +943,7 @@ button {
     box-shadow: 0 14px 30px rgba(255, 255, 255, 0.3);
 }
 
-/* --------------------------------------------------------------------------
-   11. FOOTER
-   -------------------------------------------------------------------------- */
+
 .footer {
     background: #0F172A;
     color: #FFFFFF;
@@ -1036,9 +1011,7 @@ button {
     color: #64748B;
 }
 
-/* --------------------------------------------------------------------------
-   12. RESPONSIVE DESIGN (MEDIA QUERIES)
-   -------------------------------------------------------------------------- */
+
 @media (max-width: 1024px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1083,7 +1056,7 @@ button {
         display: block;
     }
 
-    /* Mobile Menu Open State */
+
     .navbar.menu-open .nav-links {
         display: flex;
         flex-direction: column;

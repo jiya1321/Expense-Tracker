@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget & Reports — Spendo Expense Tracker</title>
+    <meta name="description" content="View financial insights, category budget limits, monthly progress, and convert currencies in real-time.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+
+        <aside class="sidebar">
+            <a href="landing.html" class="brand">
+                <div class="brand-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <span>Spendo</span>
+            </a>
+
+            <nav>
+                <a href="index.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="transactions.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Transactions</span>
+                </a>
+                <a href="reports.html" class="active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                        <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                    </svg>
+                    <span>Budget & Reports</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">S</div>
+                    <div class="user-info">
+                        <h4>Spendo User</h4>
+                        <p>Personal Workspace</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="top-header">
+                <div>
+                    <h2>Budget & Reports Analysis</h2>
+                    <p>Track spending rules, category-wise boundaries, and insights overview.</p>
+                </div>
+                <div class="date-display" id="dateDisplay">
+                    August 2026
+                </div>
+            </header>
+
+
+            <section class="card">
+                <h3>Financial Overview</h3>
+                <div class="summary-grid" style="margin-bottom: 0; grid-template-columns: repeat(4, 1fr);">
+                    <div class="summary-card balance">
+                        <h3>Total Balance</h3>
+                        <div class="value" id="total-balance">₹0</div>
+                    </div>
+                    <div class="summary-card income">
+                        <h3>Income</h3>
+                        <div class="value" id="total-income">₹0</div>
+                    </div>
+                    <div class="summary-card expense">
+                        <h3>Expenses</h3>
+                        <div class="value" id="total-expense">₹0</div>
+                    </div>
+                    <div class="summary-card balance" style="border-left: 4px solid var(--color-purple);">
+                        <h3>Savings</h3>
+                        <div class="value" id="total-savings">₹0</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="report-grid">
+
+
+                <div class="card">
+                    <h3>
+                        <span>Monthly Budget Limit</span>
+                        <button id="set-budget" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;">
+                            Set Budget
+                        </button>
+                    </h3>
+
+                    <div class="progress-bar-container" style="margin-top: 14px;">
+                        <div class="budget-info-row">
+                            <span>Amount Spent</span>
+                            <strong>
+                                <span id="spent-amount">₹0</span> <span id="total-budget" style="color: var(--color-text-light);">/ ₹0</span>
+                            </strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="fill primary" id="budget-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <p class="budget-remaining" id="budget-remaining" style="font-weight: 600; font-size: 14px; margin-top: 20px;">
+                        Set your monthly budget to get started
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <h3>
+                        <span>Category Budgets</span>
+                        <button id="set-category-budget" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;">
+                            Add Limit
+                        </button>
+                    </h3>
+
+                    <div id="category-budget-list" class="list-rows" style="margin-top: 10px;">
+
+                        <div class="empty-state">
+                            <span>🛡️</span>
+                            <h4>No category budgets set</h4>
+                            <p>Add specific category limits to prevent overspending.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="report-grid">
+
+
+                <div class="card">
+                    <h3>Spending by Category</h3>
+                    <div id="category-list" class="list-rows">
+                        <div class="empty-state">
+                            <span>📊</span>
+                            <h4>No spending data</h4>
+                            <p>Log transactions on the Dashboard to see breakdowns.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <h3>Monthly Report Summary</h3>
+                    <div class="list-rows">
+                        <div class="list-row">
+                            <span>Total Income Received</span>
+                            <strong id="monthly-income" style="color: var(--color-emerald);">₹0</strong>
+                        </div>
+                        <div class="list-row">
+                            <span>Total Expenses Paid</span>
+                            <strong id="monthly-expense" style="color: var(--color-rose);">₹0</strong>
+                        </div>
+                        <div class="list-row">
+                            <span>Net Month Savings</span>
+                            <strong id="monthly-savings" style="color: var(--color-primary);">₹0</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="card">
+                <h3>Financial Recommendations</h3>
+                <div class="analysis-content" id="spending-analysis-container">
+                    <div class="empty-state" id="spending-analysis-empty">
+                        <span>💡</span>
+                        <h4>No analysis insights yet</h4>
+                        <p>Track more transactions to receive tailored financial analysis.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="card">
+                <h3>
+                    <span>Currency Converter</span>
+                    <small>Real-time INR exchange rates</small>
+                </h3>
+
+                <div class="converter-form" style="margin-top: 15px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="convert-amount">Amount (INR)</label>
+                        <input type="number" id="convert-amount" placeholder="Enter INR amount" min="1" value="1000">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="convert-target">Convert To</label>
+                        <select id="convert-target">
+                            <option value="USD">USD — US Dollar</option>
+                            <option value="EUR">EUR — Euro</option>
+                            <option value="GBP">GBP — British Pound</option>
+                            <option value="AUD">AUD — Australian Dollar</option>
+                            <option value="CAD">CAD — Canadian Dollar</option>
+                            <option value="JPY">JPY — Japanese Yen</option>
+                            <option value="AED">AED — UAE Dirham</option>
+                            <option value="SAR">SAR — Saudi Riyal</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="convert-btn" class="btn btn-primary" style="height: 46px; margin-bottom: 0;">
+                        Convert
+                    </button>
+                </div>
+
+                <p id="convert-error" class="error" style="margin-top: 12px; margin-bottom: 0;"></p>
+
+                <div class="converter-result-box" id="convert-result-box" style="display: none; margin-top: 16px;">
+                    <div id="convert-result" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+
+    <script src="js/reports.js"></script>
+    <script>
+        // Simple current month display updates
+        document.addEventListener("DOMContentLoaded", () => {
+            const dateDisplay = document.getElementById("dateDisplay");
+            if (dateDisplay) {
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                const today = new Date();
+                dateDisplay.textContent = `${months[today.getMonth()]} ${today.getFullYear()}`;
+            }
+        });
+    </script>
+</body>
+</html>

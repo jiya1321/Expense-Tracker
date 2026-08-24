@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Spendo Expense Tracker</title>
-    <meta name="description" content="Manage your income and expenses easily in one simple and clean dashboard.">
+    <title>Transactions — Spendo Expense Tracker</title>
+    <meta name="description" content="View, search, sort, and manage all your transactions and custom categories.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
             </a>
 
             <nav>
-                <a href="index.html" class="active">
+                <a href="index.html">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <rect x="3" y="3" width="7" height="9" rx="1"></rect>
                         <rect x="14" y="3" width="7" height="5" rx="1"></rect>
@@ -38,7 +38,7 @@
                     </svg>
                     <span>Dashboard</span>
                 </a>
-                <a href="transactions.html">
+                <a href="transactions.html" class="active">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                         <line x1="1" y1="10" x2="23" y2="10"></line>
@@ -70,8 +70,8 @@
 
             <header class="top-header">
                 <div>
-                    <h2>Financial Dashboard</h2>
-                    <p>Welcome back! Manage and track your personal finances here.</p>
+                    <h2>Transactions Ledger</h2>
+                    <p>Add, edit, filter, and organize your categories and money records.</p>
                 </div>
                 <div class="date-display" id="dateDisplay">
                     August 2026
@@ -81,19 +81,19 @@
 
             <section class="summary-grid">
                 <div class="summary-card balance">
-                    <h3>Current Balance</h3>
+                    <h3>Balance</h3>
                     <div class="value" id="balance">₹0</div>
-                    <p class="meta">Net funds available</p>
+                    <p class="meta">Net ledger total</p>
                 </div>
                 <div class="summary-card income">
                     <h3>Total Income</h3>
                     <div class="value" id="totalIncome">₹0</div>
-                    <p class="meta">Total cash inflow</p>
+                    <p class="meta">All cash additions</p>
                 </div>
                 <div class="summary-card expense">
                     <h3>Total Expenses</h3>
                     <div class="value" id="totalExpense">₹0</div>
-                    <p class="meta">Total cash outflow</p>
+                    <p class="meta">All cash deductions</p>
                 </div>
             </section>
 
@@ -101,13 +101,15 @@
             <section class="report-grid">
 
 
-                <div class="card">
-                    <h3>Quick Add Transaction</h3>
-                    <form id="transactionForm">
-                        <div class="form-grid">
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+
+
+                    <div class="card">
+                        <h3 id="formTitle">Add Transaction</h3>
+                        <form id="transactionForm">
                             <div class="form-group">
                                 <label for="type">Transaction Type</label>
-                                <select id="type">
+                                <select id="type" required>
                                     <option value="expense">Expense</option>
                                     <option value="income">Income</option>
                                 </select>
@@ -115,57 +117,92 @@
 
                             <div class="form-group">
                                 <label for="amount">Amount (₹)</label>
-                                <input type="number" id="amount" placeholder="Enter amount" min="1">
-                                <p id="amountError" class="error"></p>
+                                <input type="number" id="amount" placeholder="Enter amount" min="1" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select id="category">
+                                <select id="category" required>
 
                                 </select>
-                                <p id="categoryError" class="error"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input type="text" id="description" placeholder="Description e.g. Uber ride" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="date">Date</label>
-                                <input type="date" id="date">
-                                <p id="dateError" class="error"></p>
+                                <input type="date" id="date" required>
                             </div>
 
-                            <div class="form-group full-width">
-                                <label for="description">Description</label>
-                                <input type="text" id="description" placeholder="Example: Lunch, Rent, Freelance payoff">
-                                <p id="descriptionError" class="error"></p>
-                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%; margin-top: 10px;">
+                                Add Transaction
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="width: 100%; margin-top: 8px; display: none;">
+                                Cancel Edit
+                            </button>
+                        </form>
+                        <p id="error" class="error" style="margin-top: 10px;"></p>
+                    </div>
+
+
+                    <div class="card">
+                        <h3>Category Management</h3>
+                        <div class="category-input-group">
+                            <input type="text" id="newCategory" placeholder="e.g. Health, Gift, Tax">
+                            <button onclick="addCategory()" class="btn btn-secondary" style="padding: 10px 16px;">
+                                Add
+                            </button>
                         </div>
+                        <div class="category-tags" id="categoryList">
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                            <span>Add Transaction</span>
-                        </button>
-                    </form>
+                        </div>
+                    </div>
+
                 </div>
 
 
-                <div class="card" style="display: flex; flex-direction: column;">
-                    <h3 style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                        <span>Recent Transactions</span>
-                        <button id="removeLastBtn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px; font-weight: 600;">
-                            Undo Last
-                        </button>
-                    </h3>
+                <div style="display: flex; flex-direction: column;">
 
-                    <div style="margin-bottom: 20px;">
-                        <input type="text" id="searchInput" placeholder="Search by category or description...">
+
+                    <div class="card">
+                        <h3>Filters & Search</h3>
+                        <div class="filter-bar">
+                            <input type="text" id="searchInput" placeholder="Search description...">
+
+                            <select id="filterCategory">
+                                <option value="all">All Categories</option>
+                            </select>
+
+                            <select id="filterType">
+                                <option value="all">All Types</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+
+                            <select id="sort">
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
+                                <option value="high">Highest amount</option>
+                                <option value="low">Lowest amount</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="transaction-list" id="transactionList">
 
+                    <div class="card" style="flex-grow: 1;">
+                        <h3>
+                            <span>All Transactions</span>
+                            <small id="transactionCount">0 transactions</small>
+                        </h3>
+
+                        <div class="transaction-list" id="transactionList">
+
+                        </div>
                     </div>
+
                 </div>
 
             </section>
@@ -173,7 +210,7 @@
     </div>
 
 
-    <script src="js/dashboard.js"></script>
+    <script src="js/transactions.js"></script>
     <script>
         // Simple current month display updates
         document.addEventListener("DOMContentLoaded", () => {
